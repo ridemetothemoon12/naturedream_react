@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@font-face {
+  font-family: "score3";
+  src: url("./fonts/SCDream3.otf");
+}
+@font-face {
+  font-family: "score4";
+  src: url("./fonts/SCDream4.otf");
+}
+@font-face {
+  font-family: "score5";
+  src: url("./fonts/SCDream5.otf");
+}
+
+.swiper-pagination-bullet {
+  transition: .3s !important;
+  opacity: 1 !important;
+  background-color: white !important;
+  box-shadow: 0px 0px 3px 1px rgb(173, 173, 173) !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 10px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #a91054 !important;
+  width: 46px !important;
+  border-radius: 50px !important;
+}
