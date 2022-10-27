@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
+import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
-
 
 const Header = styled.div`
     position: fixed;
@@ -11,12 +11,16 @@ const Header = styled.div`
     z-index: 99;
 `
 const HeaderWrap = styled.div`
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 0 auto;
-        align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    @media (min-width: 641px) and (max-width: 1024px) {
+        justify-content: space-around;
+        max-width: 1024px;
+    }
 `
 const Logos = styled.div`
     display: flex;
@@ -24,6 +28,9 @@ const Logos = styled.div`
     align-items: center;
     width: 250px;
     height: 100%;
+    @media (min-width: 641px) and (max-width: 1024px) {
+        width: fit-content;
+    }
 `
 const LogosButton = styled.div`
     position: relative;
@@ -76,6 +83,10 @@ const Searchbar = styled.div`
     }
     img {
         margin-right: 20px;
+    }
+    @media (min-width: 641px) and (max-width: 1024px) {
+        flex-basis: 45%;
+        overflow: hidden;
     }
 `
 const HeaderIcons = styled.div`
@@ -165,6 +176,10 @@ const DropMenuRight = styled.div`
 
 function Nav() {
     
+    const IsDesktop = useMediaQuery({ query: "(min-width: 1025px"})
+    const IsTablet = useMediaQuery({ query: "(min-width: 641px) and (max-width: 1024px)" });
+    const IsMobile = useMediaQuery({ query: "(max-width: 640px)" });
+
     const [MenuToggle, setMenuToggle] = useState(false)
     
 
@@ -210,7 +225,9 @@ function Nav() {
                         </DropMenu>
                     </LogosButton>
                 <LogosLogoImage>
-                    <img src="./images/logo.png" alt="1" />
+                    { IsDesktop && <img src="./images/logo.png" alt="pclogo" />}
+                    { IsTablet && <img src="./images/logotab.png" alt="tablogo" />}
+                    { IsMobile && <img src="./images/logotab.png" alt="mologo" />}
                 </LogosLogoImage>
                 </Logos>
                 <Searchbar>
@@ -224,9 +241,11 @@ function Nav() {
                     <HeaderIconBag>
                         <img src='./images/marketlogo.png' alt='login' />
                     </HeaderIconBag>
+                    { IsDesktop &&               
                     <HeaderIconInfo>
                         <img src='./images/info.png' alt='info' />
                     </HeaderIconInfo>
+                    }
                 </HeaderIcons>
             </HeaderWrap>
         </Header>

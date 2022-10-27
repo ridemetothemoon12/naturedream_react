@@ -5,8 +5,26 @@ import SwiperCore, { Pagination, Autoplay } from "swiper/core";
 import "swiper/css";
 import "swiper/css/pagination";
 import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
 SwiperCore.use([Pagination, Autoplay]);
 
+const ContentMainBannerSwiperWrap = styled.div`
+  width: 100%;
+  height: 793px;
+  @media (min-width: 641px) and (max-width: 1024px) {
+      height: 568px;
+  }
+  @media (max-width: 1024px) {
+      height: 680px;
+  }
+`
+const SwiperSlidesBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  background: ${(props) => props.background || "none"};
+  background-size: cover;
+  background-position: center;
+`
 const ContentBakery = styled.div`
   width: 100%;
   height: auto;
@@ -16,6 +34,9 @@ const ContentBakeryWrap = styled.div`
   margin: 0 auto;
   max-width: 1200px;
   height: 100%;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 800px;
+  }
 ` 
 const ContentBakeryTitleAndButton = styled.div`
   display: flex;
@@ -74,12 +95,15 @@ const ContentBakeryTop = styled.div`
   font-size: 14px;
   margin-right: 124px;
   font-family: score4;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 800px;
+    margin-right: 0px;
+  }
 `
 const ContentBakeryItemTop = styled.div`
-  width: 227px;
+  width: 20%;
   img {
-    width: 227px;
-    height: 227px;
+    width: 100%;
     box-shadow: 5px 5px 3px 1px rgba(0,0,0,0.3);
     margin-bottom: 10px;
   }
@@ -133,12 +157,15 @@ const ContentBakeryBottom = styled.div`
   margin-left: 124px;
   margin-top: 30px;
   font-family: score4;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 800px;
+    margin-left: 0px;
+  }
 `
 const ContentBakeryItemBottom = styled.div`
-  width: 227px;
+  width: 20%;
   img {
-    width: 227px;
-    height: 227px;
+    width: 100%;
     box-shadow: 5px 5px 3px 1px rgba(0,0,0,0.3);
     margin-bottom: 10px;
   }
@@ -187,6 +214,9 @@ const ContentGroceriesGlobal = styled.div`
   width: 100%;
   height: 460px;
   background-color: #fffaef;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    height: 400px;
+  }
 `
 const ContentGroceriesGlobalWrap = styled.div`
   max-width: 1200px;
@@ -196,6 +226,9 @@ const ContentGroceriesGlobalWrap = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 800px;
+  }
 `
 const ContentGroceriesGlobalTitleAndButton = styled.div`
   display: flex;
@@ -208,6 +241,7 @@ const ContentGroceriesGlobalTitleAndButton = styled.div`
 const ContentGroceriesGlobalTitleWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 `
 const ContentGroceriesGlobalTitle = styled.div`
   position: relative;
@@ -224,10 +258,13 @@ const ContentGroceriesGlobalTitle = styled.div`
     font-size: 16px;
     font-weight: normal;
   }
+  @media (min-width: 641px) and (max-width: 1024px) {
+    border: none;
+  }
 `
 const ContentGroceriesGlobalTitleSub = styled.div`
   font-family: score4;
-  width: 260px;
+  width: 50%;
   font-size: 15px;
 `
 const ContentGroceriesGlobalItemWrap = styled.div`
@@ -237,14 +274,17 @@ const ContentGroceriesGlobalItemWrap = styled.div`
   justify-content: space-between;
 `
 const ContentGroceriesGlobalItemImgWrap = styled.div`
-  width: 237px;
-  height: 237px;
+  width: 100%;
+  max-height: 240px;
   overflow: hidden;
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 `
 const ContentGroceriesGlobalItem = styled.div`
   font-family: score4;
-  width: 237px;
-  height: 319px;
+  width: 20%;
   background-color: white;
   box-shadow: 5px 5px 3px 1px rgba(0,0,0,0.3);
   cursor: pointer;
@@ -317,6 +357,9 @@ const ContentGroceriesGlobalItem = styled.div`
       transform: scale(1.05);
     }
   } 
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 25%;
+  }
 `
 const ContentGroceriesGlobalItemText = styled.div`
   margin-top: 3px;
@@ -349,17 +392,29 @@ const ContentMealKit = styled.div`
 `
 const ContentMealKitWrap = styled.div`
   display: flex;
+  height: 100%;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 800px;
+    flex-direction: column;
+    height: 100%;
+  }
 `
 const ContentMealKitTitleAndButton = styled.div`
   display: flex;
   flex-wrap: wrap;
   height: 440px;
   justify-content: space-between;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 `
 const ContentMealKitTitleWrap = styled.div`
 `
@@ -399,16 +454,22 @@ const MealKitContentButton = styled.div`
   }
 `
 const ContentMealKitItemWrap = styled.div`
-  width: 900px;
-  height: 440px;
+  max-width: 900px;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 210px);
   grid-template-rows: repeat(2, 210px);
   gap: 20px;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 900px;
+    height: 340px;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: none;
+    justify-content: center;
+  }
 `
 const ContentMealKitItem = styled.div`
   width: auto;
-  height: auto;
   position: relative;
   font-family: score4;
   box-shadow: 5px 5px 3px 1px rgba(0,0,0,0.3);
@@ -421,7 +482,8 @@ const ContentMealKitItem = styled.div`
     overflow: hidden;
   }
   img {
-      transition: .3s;
+    width: 100%;
+    transition: .3s;
   }
   &:nth-child(1) {
       grid-column: 1/3;
@@ -514,8 +576,7 @@ const ContentMealKitItemText = styled.div`
   } 
 `
 const ContentSnacksItem = styled.div`
-  width: 237px;
-  height: 319px;
+  width: 20%;
   background-color: white;
   font-family: score4;
   box-shadow: 5px 5px 3px 1px rgba(0,0,0,0.3);
@@ -604,14 +665,18 @@ const ContentSnacksItem = styled.div`
           }
       }
   } 
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 25%;
+  }
 `
 const ContentSnacksImgWrap = styled.div`
-  width: 237px;
-  height: 237px;
+  width: 100%;
+  max-height: 240px;
   overflow: hidden;
-  font-size: 0;
   img {
-    transition: .3s;
+    width: 100%;
+    margin-bottom: 10px;
+    transition: all .3s linear;
   }
   &:hover {
     img {
@@ -664,8 +729,7 @@ const PetContentButton = styled.div`
   }
 `
 const ContentPetItem = styled.div`
-  width: 237px;
-  height: 330px;
+  width: 20%;
   cursor: pointer;
   font-family: score4;
   &:nth-child(1) {
@@ -728,6 +792,9 @@ const ContentPetItem = styled.div`
           }
       }
   } 
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 25%;
+  }
 `
 const ContentPetItemText = styled.div`
   margin-top: 5px;
@@ -752,12 +819,12 @@ const ContentPetItemText = styled.div`
   }  
 `
 const ContentPetImgWrap = styled.div`
-      width: 237px;
-      height: 237px;
+      width: 100%;
       overflow: hidden;
       font-size: 0;
       box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.3);
       img {
+        width: 100%;
           transition: .3s;
       }
   &:hover {
@@ -767,18 +834,23 @@ const ContentPetImgWrap = styled.div`
   }
 `
 const ContentCampaign = styled.div`
-    width: 100%;
-    height: 460px;
-    margin-top: 150px;
-    background-color: #cfd8ef;
+  width: 100%;
+  height: 360px;
+  margin-top: 150px;
+  background-color: #cfd8ef;
 `
 const ContentCampaignWrap = styled.div`
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        max-width: 1200px;
-        height: 100%;
-        margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 800px;
+    height: 100%;
+    align-items: center;
+  }
 `
 const ContentCampaignTitle = styled.div`
   color: #7e90ff;
@@ -789,19 +861,33 @@ const ContentCampaignTitle = styled.div`
     font-size: 16px;
   }
 `
+const ContentCampaignItemImagWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`
 const ContentCampaignItemWrap = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 100%;
+  }
 `
 const ContentCampaignItem = styled.div`
   position: relative;
   color: white;
-  width: 280px;
-  height: 280px;
+  width: 20%;
+  height: 230px;
   font-family: score4;
   box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.3);
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 25%;
+  }
 `
 const ContentCampaignItemText = styled.div`
   position: relative;
@@ -811,13 +897,20 @@ const ContentCampaignItemText = styled.div`
   bottom: 0;
   font-size: 15px;
   p {
-      font-size: 13px;
+    font-size: 13px;
   } 
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: fit-content;
+    height: fit-content;
+  }
 `
 const ContentCustom = styled.div`
   margin-top: 150px;
   width: 100%;
   height: 460px;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    height: 360px;
+  }
 `
 const ContentCustomTitle = styled.div`
   font-family: score5;
@@ -834,6 +927,15 @@ const ContentCustomTitle = styled.div`
           color: #a91054;
       }
   }
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 800px;
+      p:nth-child(1) {
+        margin-right: 18%;
+        span {
+            color: #a91054;
+        }
+    }
+  }
 `
 const ContentCustomWrap = styled.div`
   font-family: score4;
@@ -842,6 +944,9 @@ const ContentCustomWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    max-width: 800px;
+  }
 `
 const ContentCustomMembership = styled.div`
   width: 640px;
@@ -849,6 +954,9 @@ const ContentCustomMembership = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 30%;
+  }
 `
 const ContentCustomMembershipItem = styled.div`
   display: flex;
@@ -858,6 +966,16 @@ const ContentCustomMembershipItem = styled.div`
   box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.3);
   font-size: 14px;
   align-items: center;
+  @media (min-width: 641px) and (max-width: 1024px) {
+    width: 100%;
+    height: 45px;
+    border-radius: 50px;
+    background-color: #a1b5ed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `
 const ContentCustomMembershipItemText = styled.div`
   padding: 10px;
@@ -911,30 +1029,37 @@ const ContentCustomQnaButton = styled.div`
       margin: 30px 0;
   }
 `
-function main() {
+function Main() {
+      
+  const IsDesktop = useMediaQuery({ query: "(min-width: 1025px"});
+  const IsTablet = useMediaQuery({ query: "(min-width: 641px) and (max-width: 1024px)" });
+  const IsMobile = useMediaQuery({ query: "(max-width: 640px)" });
+
   return (
     <>
-      <Swiper
-          style={{
-          width: "100%",
-          height: "793px",
-          }}
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
-          autoplay={{
-              delay: 3000,
-              disableOnInteraction: false
-          }}
-          loop={true}
-          loopedSlides={1}>
-              <SwiperSlide><img style={{width: "100%", height: "793px"}} src='./images/banner1.png' alt='1' /></SwiperSlide>
-              <SwiperSlide><img style={{width: "100%", height: "793px"}} src='./images/banner2.png' alt='1' /></SwiperSlide>
-              <SwiperSlide><img style={{width: "100%", height: "793px"}} src='./images/banner3.png' alt='1' /></SwiperSlide>
-              <SwiperSlide><img style={{width: "100%", height: "793px"}} src='./images/banner4.png' alt='1' /></SwiperSlide>
-        </Swiper>
+      <ContentMainBannerSwiperWrap>
+        <Swiper
+            style={{
+            width: "100%",
+            height: "100%",
+            }}
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            autoplay={{
+                delay: 3000,
+                disableOnInteraction: false
+              }}
+              loop={true}
+              loopedSlides={1}>
+                <SwiperSlide><SwiperSlidesBackground background="url('./images/banner1.png')" /></SwiperSlide>
+                <SwiperSlide><SwiperSlidesBackground background="url('./images/banner2.png')" /></SwiperSlide>
+                <SwiperSlide><SwiperSlidesBackground background="url('./images/banner3.png')" /></SwiperSlide>
+                <SwiperSlide><SwiperSlidesBackground background="url('./images/banner4.png')" /></SwiperSlide>
+          </Swiper>
+        </ContentMainBannerSwiperWrap>
 
         <ContentBakery>
           <ContentBakeryWrap>
@@ -950,44 +1075,44 @@ function main() {
             <ContentBakeryTop>
               <ContentBakeryItemTop>
                 <img src='./images/우리밀슈크림.jpg'></img>
-                <p>100% 우리밀로 만든 빵에 달콤한 슈크림을 가득 채운</p>
+                { IsDesktop && <p>100% 우리밀로 만든 빵에 달콤한 슈크림을 가득 채운</p>}
                 <h3>슈크림빵</h3>
                 </ContentBakeryItemTop>
               <ContentBakeryItemTop>
                 <img src='./images/우리밀더블베리.jpg'></img>
-                <p>우리 호밀과 섬유질이 풍부한 블루베리와 크랜베리로 만든</p>
+                { IsDesktop && <p>우리 호밀과 섬유질이 풍부한 블루베리와 크랜베리로 만든</p>}
                 <h3>더블베리호밀빵</h3>
                 </ContentBakeryItemTop>
               <ContentBakeryItemTop>
                 <img src='./images/소금빵.jpg'></img>
-                <p>고소한 버터의 풍미와 깊은바다의 물이 만들어낸 맛있는 빵</p>
+                { IsDesktop && <p>고소한 버터의 풍미와 깊은바다의 물이 만들어낸 맛있는 빵</p>}
                 <h3>깊은바다소금빵</h3>
                 </ContentBakeryItemTop>
               <ContentBakeryItemTop>
                 <img src='./images/우리밀땅콩크림.jpg'></img>
-                <p>국산 땅콩으로 풍미를 더 해 더욱 고소한 속까지 우리밀 100%</p>
+                { IsDesktop && <p>국산 땅콩으로 풍미를 더 해 더욱 고소한 속까지 우리밀 100%</p>}
                 <h3>땅콩크림빵</h3>
                 </ContentBakeryItemTop>
             </ContentBakeryTop>
             <ContentBakeryBottom>
               <ContentBakeryItemBottom>
                 <img src='./images/가나슈케이크.jpg'></img>
-                <p>100% 우리밀로 만든 빵에 달콤한 슈크림을 가득 채운</p>
+                { IsDesktop && <p>100% 우리밀로 만든 빵에 달콤한 슈크림을 가득 채운</p>}
                 <h3>슈크림빵</h3>
                 </ContentBakeryItemBottom>
               <ContentBakeryItemBottom>
                 <img src='./images/라즈베리요거트케이크.jpg'></img>
-                <p>우리 호밀과 섬유질이 풍부한 블루베리와 크랜베리로 만든</p>
+                { IsDesktop && <p>우리 호밀과 섬유질이 풍부한 블루베리와 크랜베리로 만든</p>}
                 <h3>더블베리호밀빵</h3>
                 </ContentBakeryItemBottom>
               <ContentBakeryItemBottom>
                 <img src='./images/우리밀케익.jpg'></img>
-                <p>고소한 버터의 풍미와 깊은바다의 물이 만들어낸 맛있는 빵</p>
+                { IsDesktop && <p>고소한 버터의 풍미와 깊은바다의 물이 만들어낸 맛있는 빵</p>}
                 <h3>깊은바다소금빵</h3>
                 </ContentBakeryItemBottom>
               <ContentBakeryItemBottom>
                 <img src='./images/당근케이크.jpg'></img>
-                <p>국산 땅콩으로 풍미를 더 해 더욱 고소한 속까지 우리밀 100%</p>
+                { IsDesktop && <p>국산 땅콩으로 풍미를 더 해 더욱 고소한 속까지 우리밀 100%</p>}
                 <h3>땅콩크림빵</h3>
                 </ContentBakeryItemBottom>
             </ContentBakeryBottom>
@@ -1003,7 +1128,7 @@ function main() {
                   <h3>자연드림 식품관</h3>
                 </ContentGroceriesGlobalTitle>
                 <ContentGroceriesGlobalTitleSub>
-                  <p>자연드림이 직접 탄소치유농법으로 가꾼 채소와 과일을 통해 가족의 건강을 지켜주세요.</p>
+                  { IsDesktop && <p>자연드림이 직접 탄소치유농법으로 가꾼 채소와 과일을 통해 가족의 건강을 지켜주세요.</p> }
                 </ContentGroceriesGlobalTitleSub>
               </ContentGroceriesGlobalTitleWrap>
               <ContentButton>
@@ -1013,7 +1138,7 @@ function main() {
             <ContentGroceriesGlobalItemWrap>
               <ContentGroceriesGlobalItem>
                 <ContentGroceriesGlobalItemImgWrap>
-                <img src="images/우리부추.jpg" alt="kket" width="237" height="237" />
+                <img src="images/우리부추.jpg" alt="kket"/>
                 </ContentGroceriesGlobalItemImgWrap>
                 <ContentGroceriesGlobalItemText>
                   <h3>부추</h3>
@@ -1023,7 +1148,7 @@ function main() {
               </ContentGroceriesGlobalItem>
               <ContentGroceriesGlobalItem>
                 <ContentGroceriesGlobalItemImgWrap>
-                <img src="images/우리깻잎.jpg" alt="kket" width="237" height="237" />
+                <img src="images/우리깻잎.jpg" alt="kket"/>
                 </ContentGroceriesGlobalItemImgWrap>
                 <ContentGroceriesGlobalItemText>
                   <h3>깻잎</h3>
@@ -1033,7 +1158,7 @@ function main() {
               </ContentGroceriesGlobalItem>
               <ContentGroceriesGlobalItem>
                 <ContentGroceriesGlobalItemImgWrap>
-                <img src="images/우리당고추.jpg" alt="kket" width="237" height="237" />
+                <img src="images/우리당고추.jpg" alt="kket"/>
                 </ContentGroceriesGlobalItemImgWrap>
                 <ContentGroceriesGlobalItemText>
                   <h3>당조고추</h3>
@@ -1041,16 +1166,18 @@ function main() {
                   <p>조합원가</p>
                 </ContentGroceriesGlobalItemText>
               </ContentGroceriesGlobalItem>
-              <ContentGroceriesGlobalItem>
-                <ContentGroceriesGlobalItemImgWrap>
-                <img src="images/우리단호박.jpg" alt="kket" width="237" height="237" />
-                </ContentGroceriesGlobalItemImgWrap>
-                <ContentGroceriesGlobalItemText>
-                  <h3>블랙단호박</h3>
-                  <p>일반가</p>
-                  <p>조합원가</p>
-                </ContentGroceriesGlobalItemText>
-              </ContentGroceriesGlobalItem>
+              { IsDesktop &&
+                <ContentGroceriesGlobalItem>
+                  <ContentGroceriesGlobalItemImgWrap>
+                    <img src="images/우리단호박.jpg" alt="kket"/>
+                  </ContentGroceriesGlobalItemImgWrap>
+                  <ContentGroceriesGlobalItemText>
+                    <h3>블랙단호박</h3>
+                    <p>일반가</p>
+                    <p>조합원가</p>
+                  </ContentGroceriesGlobalItemText>
+                </ContentGroceriesGlobalItem>
+              }
             </ContentGroceriesGlobalItemWrap>
           </ContentGroceriesGlobalWrap>
         </ContentGroceriesGlobal>
@@ -1072,7 +1199,7 @@ function main() {
 
             <ContentMealKitItemWrap>
               <ContentMealKitItem>
-                <img src='./images/깜빵스요리.jpg' width="440" height="440"/>
+                <img src='./images/깜빵스요리.jpg'/>
                 <ContentMealKitItemText>
                   <h3>감바스 밀키트</h3>
                   <p>일반가</p>
@@ -1080,31 +1207,35 @@ function main() {
                 </ContentMealKitItemText>
               </ContentMealKitItem>
               <ContentMealKitItem>
-                <img src='./images/돼지고기머시기요리.jpg' width="210" height="210"/>
+                <img src='./images/돼지고기머시기요리.jpg'/>
                 <ContentMealKitItemText>
                   <h3>돼지고기바싹불고기</h3>
                   <p>일반가</p>
                   <p><span>조합원가</span></p>
                 </ContentMealKitItemText>
               </ContentMealKitItem>
+              { IsDesktop &&
               <ContentMealKitItem>
-                <img src='./images/찹스테이크요리.jpg' width="210" height="210"/>
+                <img src='./images/찹스테이크요리.jpg'/>
                 <ContentMealKitItemText>
                   <h3>감바스 밀키트</h3>
                   <p>일반가</p>
                   <p><span>조합원가</span></p>
                 </ContentMealKitItemText>
               </ContentMealKitItem>
+              }
+              { IsDesktop &&
+                <ContentMealKitItem>
+                  <img src='./images/머선전골요리ㅏ.jpg'/>
+                  <ContentMealKitItemText>
+                    <h3>감바스 밀키트</h3>
+                    <p>일반가</p>
+                    <p><span>조합원가</span></p>
+                  </ContentMealKitItemText>
+                </ContentMealKitItem>
+              }
               <ContentMealKitItem>
-                <img src='./images/머선전골요리ㅏ.jpg' width="210" height="210"/>
-                <ContentMealKitItemText>
-                  <h3>감바스 밀키트</h3>
-                  <p>일반가</p>
-                  <p><span>조합원가</span></p>
-                </ContentMealKitItemText>
-              </ContentMealKitItem>
-              <ContentMealKitItem>
-                <img src='./images/깜빵스요리.jpg' width="210" height="210"/>
+                <img src='./images/깜빵스요리.jpg'/>
                 <ContentMealKitItemText>
                   <h3>감바스 밀키트</h3>
                   <p>일반가</p>
@@ -1124,7 +1255,7 @@ function main() {
                   <h3>간식/식사대용</h3>
                 </ContentGroceriesGlobalTitle>
                 <ContentGroceriesGlobalTitleSub>
-                  <p>자연드림이 직접 키운 작물로 건강하게 만든 맛있는 간식! 우리 가족에게 전해주세요.</p>
+                  { IsDesktop && <p>자연드림이 직접 키운 작물로 건강하게 만든 맛있는 간식! 우리 가족에게 전해주세요.</p>}
                 </ContentGroceriesGlobalTitleSub>
               </ContentGroceriesGlobalTitleWrap>
               <ContentButton>
@@ -1134,7 +1265,7 @@ function main() {
             <ContentGroceriesGlobalItemWrap>
               <ContentSnacksItem>
                 <ContentSnacksImgWrap>
-                <img src="images/고구마.jpg" alt="kket" width="237" height="237" />
+                <img src="images/고구마.jpg" alt="kket"/>
                 </ContentSnacksImgWrap>
                 <ContentGroceriesGlobalItemText>
                   <h3>갓구워낸달콤고구마</h3>
@@ -1144,7 +1275,7 @@ function main() {
               </ContentSnacksItem>
               <ContentSnacksItem>
                 <ContentSnacksImgWrap>
-                <img src="images/초코스틱.jpg" alt="kket" width="237" height="237" />
+                <img src="images/초코스틱.jpg" alt="kket"/>
                 </ContentSnacksImgWrap>
                 <ContentGroceriesGlobalItemText>
                   <h3>미니초코스틱</h3>
@@ -1154,7 +1285,7 @@ function main() {
               </ContentSnacksItem>
               <ContentSnacksItem>
                 <ContentSnacksImgWrap>
-                <img src="images/블루베리퓨레.jpg" alt="kket" width="237" height="237" />
+                <img src="images/블루베리퓨레.jpg" alt="kket"/>
                 </ContentSnacksImgWrap>
                 <ContentGroceriesGlobalItemText>
                   <h3>아이퓨(사과블루베리)</h3>
@@ -1162,16 +1293,18 @@ function main() {
                   <p>조합원가</p>
                 </ContentGroceriesGlobalItemText>
               </ContentSnacksItem>
-              <ContentSnacksItem>
-                <ContentSnacksImgWrap>
-                <img src="images/사과퓨레.jpg" alt="kket" width="237" height="237" />
-                </ContentSnacksImgWrap>
-                <ContentGroceriesGlobalItemText>
-                  <h3>아이퓨(사과복숭아)</h3>
-                  <p>일반가</p>
-                  <p>조합원가</p>
-                </ContentGroceriesGlobalItemText>
-              </ContentSnacksItem>
+              { IsDesktop &&
+                <ContentSnacksItem>
+                  <ContentSnacksImgWrap>
+                  <img src="images/사과퓨레.jpg" alt="kket"/>
+                  </ContentSnacksImgWrap>
+                  <ContentGroceriesGlobalItemText>
+                    <h3>아이퓨(사과복숭아)</h3>
+                    <p>일반가</p>
+                    <p>조합원가</p>
+                  </ContentGroceriesGlobalItemText>
+                </ContentSnacksItem>
+              }
             </ContentGroceriesGlobalItemWrap>
           </ContentGroceriesGlobalWrap>
         </ContentGroceriesGlobal>
@@ -1193,7 +1326,7 @@ function main() {
             <ContentGroceriesGlobalItemWrap>
               <ContentPetItem>
                 <ContentPetImgWrap>
-                <img src="images/단또맘마.jpg" alt="kket" width="237" height="237" />
+                <img src="images/단또맘마.jpg" alt="kket"/>
                 </ContentPetImgWrap>
                 <ContentPetItemText>
                 <h3>야옹이맘마(반려묘)</h3>
@@ -1203,7 +1336,7 @@ function main() {
               </ContentPetItem>
               <ContentPetItem>
                 <ContentPetImgWrap>
-                <img src="images/로렌츠스틱.jpg" alt="kket" width="237" height="237" />
+                <img src="images/로렌츠스틱.jpg" alt="kket"/>
                 </ContentPetImgWrap>
                 <ContentPetItemText>
                 <h3>로렌츠스틱(반려견)</h3>
@@ -1211,19 +1344,21 @@ function main() {
                         <p>조합원가</p>
                 </ContentPetItemText>
               </ContentPetItem>
-              <ContentPetItem>
-                <ContentPetImgWrap>
-                <img src="images/로렌츠큐브.jpg" alt="kket" width="237" height="237" />
-                </ContentPetImgWrap>
-                <ContentPetItemText>
-                <h3>로렌츠고구마큐브(반려견)</h3>
-                        <p>일반가</p>
-                        <p>조합원가</p>
-                </ContentPetItemText>
+                { IsDesktop &&             
+                <ContentPetItem>
+                  <ContentPetImgWrap>
+                    <img src="images/로렌츠큐브.jpg" alt="kket"/>
+                  </ContentPetImgWrap>
+                  <ContentPetItemText>
+                    <h3>로렌츠고구마큐브(반려견)</h3>
+                    <p>일반가</p>
+                    <p>조합원가</p>
+                  </ContentPetItemText>
               </ContentPetItem>
+              }
               <ContentPetItem>
                 <ContentPetImgWrap>
-                <img src="images/메디츄.jpg" alt="kket" width="237" height="237" />
+                <img src="images/메디츄.jpg" alt="kket"/>
                 </ContentPetImgWrap>
                 <ContentPetItemText>
                 <h3>닥터메디츄참치(반려묘)</h3>
@@ -1243,38 +1378,48 @@ function main() {
             </ContentCampaignTitle>
             <ContentCampaignItemWrap>
               <ContentCampaignItem>
-                <img src="images/숲사진.jpg" alt="gambas" width="280" height="280"></img>
+                <ContentCampaignItemImagWrap>
+                  <img src="images/숲사진.jpg" alt="gambas"></img>
+                </ContentCampaignItemImagWrap>
                 <ContentCampaignItemText style={{backgroundColor: 'rgba(39, 71, 28, 0.8)'}}>
                 <h3>No 플라스틱 약속 캠페인</h3>
-                        <p>페트병 재활용을 높이려는 노력보다
-                            페트병의 생산·사용량을 줄여야 합니다.</p>
+                { IsDesktop && <p>페트병 재활용을 높이려는 노력보다
+                    페트병의 생산·사용량을 줄여야 합니다.</p>}
                 </ContentCampaignItemText>
               </ContentCampaignItem>
               <ContentCampaignItem>
-                <img src="images/바다.jpg" alt="gambas" width="280" height="280"></img>
+                <ContentCampaignItemImagWrap>
+                  <img src="images/바다.jpg" alt="gambas"></img>
+                </ContentCampaignItemImagWrap>
                 <ContentCampaignItemText style={{backgroundColor: 'rgba(4, 164, 255, 0.8)'}}>
                 <h3>세이브 디 오션</h3>
-                        <p>미세플라스틱,
-                            바다로 흘러보내지 않는 것이 정답입니다.</p>
+                { IsDesktop &&<p>미세플라스틱,
+                    바다로 흘러보내지 않는 것이 정답입니다.</p>}
                 </ContentCampaignItemText>
               </ContentCampaignItem>
               <ContentCampaignItem>
-                <img src="images/dka.png" alt="gambas" width="280" height="280"></img>
+                <ContentCampaignItemImagWrap>
+                  <img src="images/dka.png" alt="gambas"></img>
+                </ContentCampaignItemImagWrap>
                 <ContentCampaignItemText style={{backgroundColor: 'rgba(255, 152, 4, 0.8)'}}>
                 <h3>암 예방 캠페인</h3>
-                        <p>식생활이 암 발생 요인의 30% 차지
-                            암 예방을 위해서는 식품을 선택할 때부터 쉽게
-                            알 수 있어야 합니다.</p>
+                { IsDesktop && <p>식생활이 암 발생 요인의 30% 차지
+                    암 예방을 위해서는 식품을 선택할 때부터 쉽게
+                    알 수 있어야 합니다.</p>}
                 </ContentCampaignItemText>
               </ContentCampaignItem>
-              <ContentCampaignItem>
-                <img src="images/우리밀.png" alt="gambas" width="280" height="280"></img>
-                <ContentCampaignItemText style={{backgroundColor: 'rgba(89, 52, 0, 0.8)'}}>
-                <h3>우리밀 정직하게, 건강하게</h3>
-                        <p>우리 아이들에게 수입밀 섞지 않은
-                            진짜 “우리밀” 빵을 주세요.</p>
-                </ContentCampaignItemText>
-              </ContentCampaignItem>
+              { IsDesktop &&
+                <ContentCampaignItem>
+                  <ContentCampaignItemImagWrap>
+                    <img src="images/우리밀.png" alt="gambas"></img>
+                  </ContentCampaignItemImagWrap>
+                  <ContentCampaignItemText style={{backgroundColor: 'rgba(89, 52, 0, 0.8)'}}>
+                  <h3>우리밀 정직하게, 건강하게</h3>
+                  { IsDesktop && <p>우리 아이들에게 수입밀 섞지 않은
+                      진짜 “우리밀” 빵을 주세요.</p>}
+                  </ContentCampaignItemText>
+                </ContentCampaignItem>
+              }
             </ContentCampaignItemWrap>
           </ContentCampaignWrap>
         </ContentCampaign>
@@ -1287,25 +1432,25 @@ function main() {
           <ContentCustomWrap>
             <ContentCustomMembership>
               <ContentCustomMembershipItem>
-                <img src="images/혜택.png" alt="bicon" width="69" height="69" />
+                { IsDesktop && <img src="images/혜택.png" alt="bicon" width="69" height="69" />}
                 <ContentCustomMembershipItemText>
                   <h3>조합원 혜택</h3>
                 </ContentCustomMembershipItemText>
               </ContentCustomMembershipItem>
               <ContentCustomMembershipItem>
-                <img src="images/카카오톡.png" alt="bicon" width="69" height="69" />
+                { IsDesktop && <img src="images/카카오톡.png" alt="bicon" width="69" height="69" />}
                 <ContentCustomMembershipItemText>
                   <h3>카카오톡 플러스친구</h3>
                 </ContentCustomMembershipItemText>
               </ContentCustomMembershipItem>
               <ContentCustomMembershipItem>
-                <img src="images/자드림아이콘.png" alt="bicon" width="69" height="69" />
+                { IsDesktop && <img src="images/자드림아이콘.png" alt="bicon" width="69" height="69" />}
                 <ContentCustomMembershipItemText>
                   <h3>아이쿱조합원앱카드</h3>
                 </ContentCustomMembershipItemText>
               </ContentCustomMembershipItem>
               <ContentCustomMembershipItem>
-                <img src="images/저금통.png" alt="bicon" width="69" height="69" />
+                { IsDesktop && <img src="images/저금통.png" alt="bicon" width="69" height="69" />}
                 <ContentCustomMembershipItemText>
                   <h3>아이쿱자연드림마일리지</h3>
                 </ContentCustomMembershipItemText>
@@ -1329,4 +1474,4 @@ function main() {
   )
 }
 
-export default main
+export default Main

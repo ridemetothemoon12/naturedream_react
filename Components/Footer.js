@@ -1,4 +1,5 @@
 import React from 'react'
+import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 
 const ContentFooter = styled.div`
@@ -9,6 +10,13 @@ const ContentFooter = styled.div`
 `
 const ContentFooterWrap = styled.div`
     width: 100%;
+    @media (min-width: 641px) and (max-width: 1024px) {
+        width: 90%;
+        margin: 0 auto;
+        a{
+            font-size: 11px;
+        }
+    }
 `
 const FooterTop = styled.div`
     font-size: 14px;
@@ -87,7 +95,7 @@ function Footer() {
                 </FooterTop>
                 <FooterBottom>
                     <FooterBottomLeft>
-                        <img src="images/logo.png" alt="bicon" width="132" height="29" style={{marginBottom: '20px'}}/>
+                        <img src="./images/logo.png" alt="bicon" width="132" height="29" style={{marginBottom: '20px'}}/>
                         <FooterBottomLeftText>
                             <TextTop>
                                 <p>(주)쿱스토어</p>
