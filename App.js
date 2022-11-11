@@ -10,7 +10,7 @@ function App() {
     <>
     <Nav />
       <Routes>
-        <Route path='naturedream_react/' element={<Main />} />
+        <Route path='/naturedream_react' element={<Main />} />
       </Routes>
     <Footer />
     </>
